@@ -1,19 +1,40 @@
-// Manager Class (Child of FullTimeEmployee)
+import java.time.LocalDate;
+
 class Manager extends FullTimeEmployee {
-    double TA;
-    double eduAllowance;
+    private double TA;
+    private double eduAllowance;
 
-    Manager(String name, String PANNo, String joiningDate, String designation,
-            int empId, double baseSalary, double perfBonus, String role,
-            double TA, double eduAllowance) {
-
-        super(name, PANNo, joiningDate, designation, empId, baseSalary, perfBonus, role);
+    public Manager(String name, String PANNo, LocalDate joiningDate, String designation, int empId,
+                   double baseSalary, double perfBonus, double hiringCommission, String role,
+                   double TA, double eduAllowance) {
+        super(name, PANNo, joiningDate, designation, empId, baseSalary, perfBonus, hiringCommission, role);
         this.TA = TA;
         this.eduAllowance = eduAllowance;
     }
 
     @Override
-    double calcCTC() {
+    public double calcCTC() {
         return baseSalary + perfBonus + TA + eduAllowance;
+    }
+
+    // Getters
+    public double getTA() { return TA; }
+    public double getEduAllowance() { return eduAllowance; }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "name='" + name + '\'' +
+                ", PANNo='" + PANNo + '\'' +
+                ", joiningDate=" + joiningDate +
+                ", designation='" + designation + '\'' +
+                ", empId=" + empId +
+                ", baseSalary=" + baseSalary +
+                ", perfBonus=" + perfBonus +
+                ", hiringCommission=" + hiringCommission +
+                ", role='" + role + '\'' +
+                ", TA=" + TA +
+                ", eduAllowance=" + eduAllowance +
+                '}';
     }
 }

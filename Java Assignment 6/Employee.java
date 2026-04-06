@@ -1,13 +1,13 @@
-// Abstract Root Class
-abstract class Employee {
-    String name;
-    String PANNo;
-    String joiningDate;
-    String designation;
-    int empId;
+import java.time.LocalDate;
 
-    // Constructor
-    Employee(String name, String PANNo, String joiningDate, String designation, int empId) {
+abstract class Employee {
+    protected String name;
+    protected String PANNo;
+    protected LocalDate joiningDate;
+    protected String designation;
+    protected int empId;
+
+    public Employee(String name, String PANNo, LocalDate joiningDate, String designation, int empId) {
         this.name = name;
         this.PANNo = PANNo;
         this.joiningDate = joiningDate;
@@ -15,6 +15,23 @@ abstract class Employee {
         this.empId = empId;
     }
 
-    // Abstract Method
-    abstract double calcCTC();
+    public abstract double calcCTC();
+
+    // Getters
+    public String getName() { return name; }
+    public String getPANNo() { return PANNo; }
+    public LocalDate getJoiningDate() { return joiningDate; }
+    public String getDesignation() { return designation; }
+    public int getEmpId() { return empId; }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", PANNo='" + PANNo + '\'' +
+                ", joiningDate=" + joiningDate +
+                ", designation='" + designation + '\'' +
+                ", empId=" + empId +
+                '}';
+    }
 }

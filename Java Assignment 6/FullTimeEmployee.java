@@ -1,25 +1,49 @@
-// Full Time Employee Class
-class FullTimeEmployee extends Employee {
-    double baseSalary;
-    double perfBonus;
-    String role;
+import java.time.LocalDate;
 
-    FullTimeEmployee(String name, String PANNo, String joiningDate, String designation,
-                     int empId, double baseSalary, double perfBonus, String role) {
+class FullTimeEmployee extends Employee {
+    protected double baseSalary;
+    protected double perfBonus;
+    protected double hiringCommission;
+    protected String role;
+
+    public FullTimeEmployee(String name, String PANNo, LocalDate joiningDate, String designation, int empId,
+                            double baseSalary, double perfBonus, double hiringCommission, String role) {
         super(name, PANNo, joiningDate, designation, empId);
         this.baseSalary = baseSalary;
         this.perfBonus = perfBonus;
+        this.hiringCommission = hiringCommission;
         this.role = role;
     }
 
     @Override
-    double calcCTC() {
-        if (role.equalsIgnoreCase("SWE")) {
+    public double calcCTC() {
+        if ("SWE".equals(role)) {
             return baseSalary + perfBonus;
-        } else if (role.equalsIgnoreCase("HR")) {
-            double hiringCommission = 5000; // example
+        } else if ("HR".equals(role)) {
             return baseSalary + hiringCommission;
+        } else {
+            return baseSalary; // default
         }
-        return baseSalary;
+    }
+
+    // Getters
+    public double getBaseSalary() { return baseSalary; }
+    public double getPerfBonus() { return perfBonus; }
+    public double getHiringCommission() { return hiringCommission; }
+    public String getRole() { return role; }
+
+    @Override
+    public String toString() {
+        return "FullTimeEmployee{" +
+                "name='" + name + '\'' +
+                ", PANNo='" + PANNo + '\'' +
+                ", joiningDate=" + joiningDate +
+                ", designation='" + designation + '\'' +
+                ", empId=" + empId +
+                ", baseSalary=" + baseSalary +
+                ", perfBonus=" + perfBonus +
+                ", hiringCommission=" + hiringCommission +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
