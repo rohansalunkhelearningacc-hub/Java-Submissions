@@ -1,0 +1,5 @@
+studentId,name,branch,marks1,marks2,marks3,marks4,marks5,percentage
+S001,Alice,Computer Science,85,90,78,88,92,86.6
+S002,Bob,Mechanical Engineering,76,82,88,85,79,82.0
+S004,Diana,Civil Engineering,92,85,79,88,90,86.8
+S005,Eve,Chemical Engineering,78,88,85,82,87,84.0
