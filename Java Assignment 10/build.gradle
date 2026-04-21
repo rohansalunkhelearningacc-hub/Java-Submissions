@@ -1,0 +1,38 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "21.0.10"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.26'
+}
+
+application {
+    mainClass = "Main"
+}
+
+// Task to run the console version
+task runConsole(type: JavaExec) {
+    group = "Execution"
+    description = "Run the console version of the application"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "Main"
+    args = ["console"]
+}
+
+// Task to run the JavaFX GUI version
+task runGUI(type: JavaExec) {
+    group = "Execution"
+    description = "Run the JavaFX GUI version of the application"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "RestaurantManagementApp"
+}
